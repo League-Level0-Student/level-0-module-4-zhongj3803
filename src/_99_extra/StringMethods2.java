@@ -6,9 +6,9 @@ public class StringMethods2 {
 		
 		// 1. Create a String variable and initialize it with
 		//    random upper and lower case characters.
-
+String var = "poTatOEs";
 		// 2. Print your String to the console in upper case.
-		
+		System.out.println(var);
 		// 3. Print your String to the console in lower case.
 
 		// 4. Print the first 3 char's of your String

@@ -5,46 +5,60 @@
 	 * If you are not sure, ask your teacher 
 	 * *****************/
 boolean canPlaySounds = true;
-
+ PImage waldo;
 void setup() {
   
   //Find a Where's Waldo picture and drop it into this sketch.     
-  PImage waldo = loadImage("waldo.jpg"); // Change this to match your file name.
+  // Change this to match your file name.
+waldo = loadImage("waldo.jpg");
   size(600, 400); 
   // Resize your waldo picture to the same size as the sketch
-  
+  waldo.resize(600,400);
   // Make the waldo image your sketch background
 
 }
 
 void draw() {
-
+background(waldo);
       // If the user presses the mouse .......
-  
+  if (mousePressed) {
           // Use this print statement to help you find the location of Waldo to use in the code below
-          // println("X: " + mouseX + " Y: " + mouseY); 
-    
+          println("X: " + mouseX + " Y: " + mouseY); 
+  }
           // Check if the location of the mouse is anywhere on the image of Waldo.
           // If it is, print “Waldo found!”  Use the text() command to write it on the sketch.
-          
+   boolean xInBetween = false;
+   if (mouseX > 511 && mouseX < 525) {
+     xInBetween = true;
+   }
+   
+   boolean yInBetween = false; 
+   if (mouseY > 54 && mouseY < 64) {
+     yInBetween = true;
+   }
+   
+   if (xInBetween && yInBetween) {
+     text("Waldo found!",300,200);
                 if (canPlaySounds) {
+                
                     // Use the playWhoohoo() method below. You can change the sound if you want 
                 } 
-    
-          // However, if the mouse is not on Waldo, print "Not here!" 
+   }
+       else {   // However, if the mouse is not on Waldo, print "Not here!" 
           // Use the text() command to write it on the sketch. 
-          
+          text("Not here!",300,200);
                 if (canPlaySounds) {
+                 
                     // Use the playDoh() method below. You can change the sound if you want 
                 }       
                 
 }
-
+}
 /*********************  This code is needed to play sounds. ********************
               Remove the comment markers below, but DON'T CHANGE THE CODE */
               
 
-/*
+
 import ddf.minim.*;
 Minim minim = new Minim(this); 
 
@@ -63,4 +77,3 @@ void playDoh() {
      doh.stop();
      doh.trigger();
 }
-*/
