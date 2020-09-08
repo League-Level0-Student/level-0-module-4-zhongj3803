@@ -1,6 +1,8 @@
 PImage face;
 int x=266;
 int y=282;
+int r=266;
+int s=282;
 void setup() {
 face = loadImage("face (2).jpg");
 face.resize(width,height);
@@ -33,13 +35,17 @@ fill(#030303);
 if (xInBetween && yInBetween) {
 ellipse(mouseX,mouseY,20,20);
 ellipse(mouseX+185,mouseY+7,20,20);
+r=mouseX;
+s=mouseY;
 }
 else if (xInBetween1 && yInBetween1) {
 ellipse(mouseX,mouseY,20,20);
 ellipse(mouseX-185,mouseY-7,20,20);
+r=mouseX-185;
+s=mouseY-7;
 }
 else {
-ellipse(x,y,20,20);
-ellipse(x+185,y+7,20,20);
+ellipse(r,s,20,20);
+ellipse(r+185,s+7,20,20);
 }
 }
